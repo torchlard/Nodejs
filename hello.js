@@ -1,8 +1,10 @@
-var counter1 = require('./util/counter');
+#! /usr/bin/env node
 
-console.log(counter1.countxx());
-console.log(counter1.countxx());
-console.log(counter1.countxx());
+const util = require('./util');
+
+console.log(util.addF(2,3));
+console.log(util.powF.pow(4))
+console.log(util)
 
 
 
