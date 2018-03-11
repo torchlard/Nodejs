@@ -1,0 +1,133 @@
+body {
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Noto Sans';
+  margin: 0;
+}
+
+.drawer {
+  width: 600px;
+  height: 100vh;
+  position: absolute;
+  background-color: white;
+  filter: none;
+  padding: 0;
+  z-index: 3;
+  /* visibility: collapse; */
+  transform: translate(-600px);
+}
+
+.drawer .container img {
+  width: 100%;
+}
+
+.drawer .container {
+  position: relative;
+  text-align: center;
+}
+
+.drawer .container .title {
+  color: white;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 2em;
+}
+.drawer ul {
+  padding: 0;
+  margin: 0;
+}
+.drawer ul li {
+  list-style-type: none;
+}
+.drawer ul li a {
+  padding: 35px 0px 25px 100px;
+  text-decoration: none;
+  color: black;
+  display: block;
+  font-size: 2.5em;
+}
+.drawer ul li:hover, .drawer ul li:active {
+  background-color: rgb(228, 228, 228);
+}
+.drawer ul hr {
+  border-top: 1px solid rgb(220,220,220);
+}
+
+
+nav {
+  background-color: black;
+  height: 150px;
+  width: 100%;
+  position: absolute;
+}
+nav p {
+  color: white;
+  float: left;
+  margin-left: 35px;
+  margin-top: 30px;
+  font-size: 4em;
+}
+nav #drawer_toggle {
+  float: left;
+  margin-top: 30px;
+  margin-left: 25px;
+}
+nav #search{
+  float: right;
+  margin-top: 35px;
+  margin-right: 25px;
+}
+
+nav input {
+  display: none;
+  height: 80px;
+  max-width: 50%;
+  float: left;
+  margin-top: 31px;
+  margin-left: 35px;
+  font-size: 4em;
+  background-color: black;
+  border: 0px;
+  color: white;
+}
+
+
+main {
+  position: absolute;
+  top: 150px;
+  padding: 10px;
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+main .hero_container {
+  width: 230px;
+  height: 230px;
+  display: block;
+}
+
+main .hero_container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+main .hero_container p {
+  background-color: rgba(50, 49, 45, 0.59);
+  color: white;
+  margin: 0;
+  padding: 5px 0;
+  bottom: 42px;
+  width: 230px;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+}
+
