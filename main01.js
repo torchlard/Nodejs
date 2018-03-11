@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const url = require('url');
+const express = require('express');
 
 // // =========== copy file ===========
 // let copy = (src,dst) => fs.writeFileSync(dst, fs.readFileSync(src));
@@ -105,11 +107,87 @@ const dt = require('./myfirstmodule');
 //   })
 // });
 
-http.createServer(function(req, res){
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.write(req.url);
-  res.end('\nhello world! The time now is '+ dt.myDateTime());
-}).listen(8080);
+// http://localhost:8000/sun/?year=2017&month=July
+// http.createServer(function(req, res){
+//   res.writeHead(200, {'Content-Type': 'text/plain'});
+//   res.write(req.url);
+//   let q = url.parse(req.url, true).query;
+//   let txt = "\n"+q.year + " " + q.month;
+//   res.end(txt);
+//   // res.end('\nhello world! The time now is '+ dt.myDateTime());
+// }).listen(8000);
+
+// http.createServer(function(req, res){
+//   let head = {'Content-Type': 'text/html'};
+//   switch(req.url.slice(-3)){
+//     case '.js': head={'Content-Type': 'text/javascript'}; break;
+//     case 'css': head={'Content-Type': 'text/css'}; break;
+//     case 'png': head={'Content-Type': 'image/png'}; break;
+//   }
+//   res.writeHead(200, head);
+//   let file_stream = fs.createReadStream('index.html');
+//   file_stream.on("error", (err) => console.log(err));
+//   file_stream.on("data", data => res.write(data));
+//   file_stream.on("close", () => res.end());
+// 
+//   // fs.readFile('index.html', function(err, data){
+//   //   res.writeHead(200, {'Content-type': 'text/html'});
+//   //   res.write(data);
+//   // });
+//   // fs.readFile('index.css', (err,data) => {
+//   //   res.writeHead(200, {'Content-type': 'text/css'});
+//   //   res.write(data);
+//   // });
+//   // fs.readFile('main02.js', (err,data) => {
+//   //   if(err) throw err;
+//   //   res.writeHead(200, {'Content-type': 'text/javascript'});
+//   //   res.write(data);
+//   //   res.end();
+//   // });
+// 
+// }).listen(8000);
+
+
+// // multiple webpage
+// http.createServer(function(req, res){
+//   if(req.url == "/"){
+//     res.writeHead(200, {'Content-Type': 'text/html'});
+//     res.write("<html><body>Home page</body><html>");
+//     res.end();
+//   } else if(req.url == "/student"){
+//     res.writeHead(200, {'Content-Type': 'text/html'});
+//     res.write("<html><body>Student abc!</body></html>");
+//     res.end();
+//   } else if(req.url == "/data"){
+//     res.writeHead(200, {'Content-Type': 'application/json'});
+//     res.write(JSON.stringify({ message: "hello world"}));
+//     res.end();
+//   }
+//   else {
+//     res.end("invalid request");
+//   }
+// }).listen(8000);
+
+const app = express();
+app.use(express.static('./resource'));
+
+fs.readFile('index.html', (err, data) => {
+  app.get('/', (req, res) => {
+    // res.send("<p>hello world</p>");
+    // res.send({message: "key"});
+    res.send(data);
+  });
+});
+
+// app.get('/student', function(req, res){
+//   console.log("get student");
+//   res.send('hello student');
+// });
+
+let server = app.listen(8000, () => console.log("start listening..."));
+
+
+
 
 
 

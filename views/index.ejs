@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <div class="drawer" id="drawer" width="300px">
+    <div class="container">
+      <img src="./drawer_bg.jpeg" />
+      <p class="title">Reference for Data2<br />Patch 7.10</p>
+    </div>
+    <ul>
+      <li><a href="#">Update Details</a></li>
+      <li><a href="#">Report a Bug</a></li>
+      <hr />
+      <li><a href="#">Heroes</a></li>
+      <li><a href="#">Items</a></li>
+      <hr />
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+
+  <nav>
+    <img id="drawer_toggle" src="./icon/bars.svg" width="70px"/>
+    <!-- <img id="arrow_left" src="./icon/arrow-left.svg" width="70px"/> -->
+    <p id="current_tab">Heroes</p>
+    <input type="text" name="search_txt" placeholder="Search..."/>
+    <img id="search" src="./icon/search.svg" width="70px"/>
+  </nav>
+
+  <main>
+    
+    <% img_list.forEach(function(images){ %>
+      <div class="hero_container">
+        <img src="./256x144/<%=images%>"/>
+        <p><%=images%></p>
+      </div>
+    <% }); %>
+  </main>
+
+  <!-- <div class="content">
+    <h1>Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.
+
+    Saw yet kindness too replying whatever marianne. Old sentiments resolution admiration unaffected its mrs literature. Behaviour new set existence dashwoods. It satisfied to mr commanded consisted disposing engrossed. Tall snug do of till on easy. Form not calm new fail.
+
+    Way nor furnished sir procuring therefore but. Warmth far manner myself active are cannot called. Set her half end girl rich met. Me allowance departure an curiosity ye. In no talking address excited it conduct. Husbands debating replying overcame blessing he it me to domestic.
+    </h1>
+  </div> -->
+
+  <!-- Log: <pre id="log"></pre> -->
+
+<script type="text/javascript" src="./main02.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
