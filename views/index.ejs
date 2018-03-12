@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link type="text/css" rel="stylesheet" href="./index.css">
 </head>
 <body>
 
-  <div class="drawer" id="drawer" width="300px">
+  <div class="drawer" id="drawer">
     <div class="container">
       <img src="./drawer_bg.jpeg" />
       <p class="title">Reference for Data2<br />Patch 7.10</p>
@@ -24,15 +25,15 @@
   </div>
 
   <nav>
-    <img id="drawer_toggle" src="./icon/bars.svg" width="70px"/>
+    <img id="drawer_toggle" src="./icon/bars.svg" width="20px"/>
     <!-- <img id="arrow_left" src="./icon/arrow-left.svg" width="70px"/> -->
     <p id="current_tab">Heroes</p>
     <input type="text" name="search_txt" placeholder="Search..."/>
-    <img id="search" src="./icon/search.svg" width="70px"/>
+    <img id="search" src="./icon/search.svg" width="20px"/>
   </nav>
 
   <main>
-    
+
     <% img_list.forEach(function(images){ %>
       <div class="hero_container">
         <img src="./256x144/<%=images%>"/>

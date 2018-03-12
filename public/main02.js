@@ -14,8 +14,8 @@ drawer_toggle.addEventListener("click", toggleDrawer);
 search.addEventListener("click", startSearch);
 
 
-let count, startX, startY, lastX, lastY, direction_list, transition=-600;
-let move_indicator = 0, brightness = 95, drawer_width=600;
+let count, startX, startY, lastX, lastY, direction_list, transition=-300;
+let move_indicator = 0, brightness = 95, drawer_width=300;
 function panstart(event){
 
   drawer.style.transition = '';
@@ -128,7 +128,7 @@ function log(msg){
 }
 
 function toggleDrawer(event){
-  if (drawer.style.transform == 'translate(-600px)'){
+  if (drawer.style.transform == 'translate(-300px)'){
     transition = 0;
     drawer.style.transform = 'translate(0px)';
   }
@@ -136,7 +136,7 @@ function toggleDrawer(event){
 }
 
 function startSearch(event){
-  drawer_toggle.setAttribute("src","./resource/icon/arrow-left.svg");
+  drawer_toggle.setAttribute("src","./icon/arrow-left.svg");
   drawer_toggle.removeEventListener("click", toggleDrawer);
   drawer_toggle.addEventListener("click", endSearch);
   current_tab.style.display = 'none';
@@ -145,7 +145,7 @@ function startSearch(event){
 }
 
 function endSearch(event){
-  drawer_toggle.setAttribute("src","./resource/icon/bars.svg");
+  drawer_toggle.setAttribute("src","./icon/bars.svg");
   drawer_toggle.removeEventListener("click", endSearch);
   drawer_toggle.addEventListener("click", toggleDrawer);
   current_tab.style.display = 'initial';
@@ -153,5 +153,9 @@ function endSearch(event){
   search_txt.value = '';
 }
 
-
+if('serviceWorker' in navigator){
+  navigator.serviceWorker
+    .register('./service-worker.js')
+    .then(() => console.log('service worker registered'));
+}
 
