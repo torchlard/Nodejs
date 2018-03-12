@@ -6,7 +6,6 @@ let search_txt = document.getElementsByName("search_txt")[0];
 let current_tab = document.getElementById("current_tab");
 let body = document.getElementsByTagName("BODY")[0];
 
-
 window.addEventListener("touchstart", panstart, {passive:true});
 window.addEventListener("touchmove", panmove, {passive:true});
 window.addEventListener("touchend", panend, {passive:true});
