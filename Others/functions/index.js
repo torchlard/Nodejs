@@ -8,7 +8,7 @@ const https = require("https");
 const cors = require("cors");
 
 const app = express();
-let img_list;
+
 
 
 fs.readdir('../public/256x144/', function(err, list){

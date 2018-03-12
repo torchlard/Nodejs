@@ -31,16 +31,16 @@
     <img id="drawer_toggle" src="./icon/bars.svg" width="20px"/>
     <!-- <img id="arrow_left" src="./icon/arrow-left.svg" width="70px"/> -->
     <p id="current_tab">Heroes</p>
-    <input type="text" name="search_txt" placeholder="Search..."/>
+    <input type="text" name="search_txt" placeholder="Search..." onkeyup="filterHeros(this.value)" />
     <img id="search" src="./icon/search.svg" width="20px"/>
   </nav>
 
   <main>
 
-    <% img_list.forEach(function(images){ %>
+    <% img_list.map(function(images, i){ %>
       <div class="hero_container">
         <img src="./256x144/<%=images%>"/>
-        <p><%=images%></p>
+        <p><%=hero_names[i]%></p>
       </div>
     <% }); %>
   </main>

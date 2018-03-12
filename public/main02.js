@@ -1,17 +1,18 @@
-let action = document.getElementById("action");
-let drawer = document.getElementById("drawer");
-let drawer_toggle = document.getElementById("drawer_toggle");
-let search = document.getElementById("search");
-let search_txt = document.getElementsByName("search_txt")[0];
-let current_tab = document.getElementById("current_tab");
-let body = document.getElementsByTagName("BODY")[0];
+const action = document.getElementById("action");
+const drawer = document.getElementById("drawer");
+const drawer_toggle = document.getElementById("drawer_toggle");
+const search = document.getElementById("search");
+const search_txt = document.getElementsByName("search_txt")[0];
+const current_tab = document.getElementById("current_tab");
+const body = document.getElementsByTagName("BODY")[0];
+const hero_containers = document.getElementsByClassName("hero_container");
 
 window.addEventListener("touchstart", panstart, {passive:true});
 window.addEventListener("touchmove", panmove, {passive:true});
 window.addEventListener("touchend", panend, {passive:true});
 drawer_toggle.addEventListener("click", toggleDrawer);
 search.addEventListener("click", startSearch);
-
+// search_txt.addEventListener("onkeydown", filterHeros());
 
 let count, startX, startY, lastX, lastY, direction_list, transition=-300;
 let move_indicator = 0, brightness = 95, drawer_width=300;
@@ -131,7 +132,6 @@ function toggleDrawer(event){
     transition = 0;
     drawer.style.transform = 'translate(0px)';
   }
-  drawer.style.transition = 'all 0.5s';
 }
 
 function startSearch(event){
@@ -150,11 +150,40 @@ function endSearch(event){
   current_tab.style.display = 'initial';
   search_txt.style.display = 'none';
   search_txt.value = '';
+  
+  drawer.style.transition = 'all 0.5s';
+  for (i of hero_containers){
+    i.style.display = 'initial';
+  }
 }
 
-if('serviceWorker' in navigator){
-  navigator.serviceWorker
-    .register('./service-worker.js')
-    .then(() => console.log('service worker registered'));
+// if('serviceWorker' in navigator){
+//   navigator.serviceWorker
+//     .register('./service-worker.js')
+//     .then(() => console.log('service worker registered'));
+// }
+
+function getEqual(data, target){
+  let len = data.length;
+  if (len==0) return true;
+  for(let j=0; j<=target.length-len; j++){
+    if( target.substring(j, j+len).toLowerCase() === data.toLowerCase()){
+      return true;
+    }
+  }
+  return false;
 }
+
+function filterHeros(data){
+  for(i of hero_containers){
+    let name = i.children[1].innerHTML;
+    if (getEqual(data, name)){
+      i.style.display = 'initial';
+    } else {
+      i.style.display = 'none';
+    }
+  }
+}
+
+
 

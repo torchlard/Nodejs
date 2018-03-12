@@ -88,7 +88,7 @@ nav #search{
 
 nav input {
   display: none;
-  height: 20px;
+  height: 22px;
   max-width: 50%;
   float: left;
   margin-top: 14px;
@@ -97,6 +97,7 @@ nav input {
   background-color: black;
   border: 0px;
   color: white;
+  outline: none;
 }
 
 
@@ -128,10 +129,10 @@ main .hero_container p {
   background-color: rgba(50, 49, 45, 0.59);
   color: white;
   /* margin: 0; */
-  /* padding: 5px 0; */
-  bottom: 22px;
+  padding: 3px 0;
+  bottom: 20px;
   width: 100%;
-  font-size: 10px;
+  font-size: 9px;
   text-align: center;
   position: relative;
 }
